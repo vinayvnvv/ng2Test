@@ -1,0 +1,37 @@
+<p>
+  sub works!
+</p>
+
+
+<form #userForm="ngForm">
+
+
+  <input type="text" required minlength="5" name="name" [(ngModel)]="user.name" #nameRef="ngModel" /> 
+  {{nameRef.valid}}
+  <div class="err" *ngIf="(!nameRef.valid && !nameRef.pristine)">
+     <div *ngIf="nameRef.errors.required">Required field!</div>
+     <div *ngIf="nameRef.errors.minlength">length => 5</div>
+ </div>
+
+<br/><br/>
+  <input type="number" required min="5" name="num" ngModel #numRef="ngModel" /> {{numRef.className}}
+  
+
+ <br/><br/>
+ <input [disabled]="userForm.invalid" type="button" value="submit" (click)="formSub(userForm)" />
+
+</form>
+
+{{userForm.valid}}
+
+<hr/>
+
+<form [formGroup]="uForm" (ngSubmit)="onUFormSubmit()">
+  
+    <input type="text" formControlName="name" #nRef/>  <br/><br/>
+    <input type="text" formControlName="email" #eRef/>   <br/><br/>
+    <input [disabled]="!uForm.valid" type="submit" value="Submit"/>
+
+
+
+</form>

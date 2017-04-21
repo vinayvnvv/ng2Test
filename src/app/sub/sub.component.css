@@ -1,0 +1,14 @@
+input {
+	border: 1px solid #d9d9d9;
+	padding: 7px 13px;	
+	border-radius: 2px;
+}
+input.ng-valid {
+	border-left: 3px solid green;
+}
+input.ng-invalid {
+	border-left: 3px solid #cc0000;
+}
+input.ng-pristine {
+	border-left: 1px solid #d9d9d9;
+}
